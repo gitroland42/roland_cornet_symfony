@@ -1,0 +1,46 @@
+  {% block stylesheets %}
+            {# <link href="{{ asset('stylesheets/bootstrap.css') }}" rel="stylesheet"/>  #}
+            <link href="{{ asset('stylesheets/style.css') }}" rel="stylesheet"/> 
+  {% endblock %}
+
+<nav class="navbar navbar-expand navbar-light bg-light justify-content-between">
+{# class="navbar navbar-light bg-light justify-content-between" #}
+    {# <div class="example-wrapper"> #}
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <img class="img-fluid" src="{{ asset('images/logo.png') }}">
+        
+        <ul class="navbar-nav mr-auto">
+           <li class="nav-item"> 
+            <a class="nav-link" href="{{ path('default') }}">Article</a> 
+           </li>
+            
+            
+
+            {% if app.user is not null %}
+                <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+              
+                </li> 
+            {% else %}
+                <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_login') }}">Connexion</a> 
+                </li> 
+            {% endif %}    
+        </ul>
+    
+        <span class="navbar-text">
+            {% if app.user is not null %}
+                <div class="form-control mr-sm-2">
+                    {{ app.user.email }}
+                </div> 
+            {% endif %}
+     </span>
+    </div>
+
+{# app.user.nom != NULL #}
+
+   
+
+</nav>
+
